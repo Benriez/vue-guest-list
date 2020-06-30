@@ -8,7 +8,10 @@ new Vue({
         },
         newNameText:'',
         guestName: [],
-        formSubmitClass: ""
+        formSubmitClass: "",
+        appStyles: {
+            marginTop: '25px',
+        }
     },
     methods: {
         formSubmitted: function(){
