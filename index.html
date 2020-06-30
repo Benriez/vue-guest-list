@@ -25,11 +25,11 @@
         <div class="col-sm-12">
           <div class="card">
             <div class="card-header">
-              August 14th - 16th
+              {{ event.eventDate }}
             </div>
             <div class="card-block">
-              <h4 class="card-title">Summer Festival!</h4><hr>
-              <p class="card-text">It's back! This years summer festival will be in the beautiful countryside featuring our best line up ever!</p>
+              <h4 class="card-title">{{ event.eventTitle }} </h4><hr>
+              <p class="card-text"> {{ event.eventDescription }} </p>
               <p class="card-text">Add your name to the guest list for exclusive offers:</p>
 
               <form class="form-inline">
