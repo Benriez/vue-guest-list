@@ -11,8 +11,12 @@ new Vue({
     },
     methods: {
         formSubmitted: function(){
-            this.guestName.push(this.newNameText)
-            this.newNameText= ''
+            if(this.newNameText.length > 0){
+                this.guestName.push(this.newNameText)
+                this.newNameText= ''
+            }else{
+                alert('wrong name')
+            }
         }
     },
 });
