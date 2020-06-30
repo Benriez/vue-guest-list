@@ -15,16 +15,16 @@
   <div id="app">
     <div class="container">
 
-      <div class="row" v-bind:style="appStyles">
+      <div class="row" :style="appStyles">
         <div class="col-sm-12 text-center">
           <h1>Guest List</h1>
         </div>
       </div>
 
-      <div class="row" v-bind:style="appStyles">
+      <div class="row" :style="appStyles">
         <div class="col-sm-12">
           <div class="card">
-            <div class="card-header" v-bind:class="formSubmitClass">
+            <div class="card-header" :class="formSubmitClass">
               {{ event.eventDate }}
             </div>
             <div class="card-block">
@@ -32,7 +32,7 @@
               <p class="card-text"> {{ event.eventDescription }} </p>
               <p class="card-text">Add your name to the guest list for exclusive offers:</p>
 
-              <form class="form-inline" v-on:submit.prevent="formSubmitted">
+              <form class="form-inline" :submit.prevent="formSubmitted">
                 <input type="text" id="nameInput" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Jane Doe" v-model="newNameText">
                 <input type="submit" class="btn btn-primary"></input>
               </form>
@@ -42,7 +42,7 @@
         </div>
       </div>
 
-      <div class="row" v-bind:style="appStyles">
+      <div class="row" :style="appStyles">
         <div class="col-sm-12">
           <div class="card">
             <div class="card-header">
