@@ -36,7 +36,7 @@
                 <input type="text" id="nameInput" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Jane Doe" v-model="newNameText">
                 <input type="submit" class="btn btn-primary"></input>
               </form>
-              {{newNameText}}
+              <!-- {{newNameText}} -->
             </div>
           </div>
         </div>
@@ -46,9 +46,9 @@
         <div class="col-sm-12">
           <div class="card">
             <div class="card-header">
-              Attending ({{guestName.length}})
+              Attending ({{guestName.length}} / {{eventCapacity}})
               <br>
-              <progress></progress>
+              <progress :style="{width: eventCapacityPercentage + '%'}"></progress>
             </div>
             <div class="card-block">
               <div v-if="guestName.length > 0">

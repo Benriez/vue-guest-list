@@ -16,12 +16,12 @@ new Vue({
     },
     methods: {
         formSubmitted: function(){
-            if(this.newNameText.length > 0){
+            if(this.newNameText.length > 0 && this.eventCapacityPercentage < 100){
                 this.guestName.push(this.newNameText)
                 this.newNameText= ''
                 this.eventCapacityPercentage = this.guestName.length / (this.eventCapacity / 100)
             }else{
-                alert('wrong name')
+                alert('error')
             }
         }
     },
