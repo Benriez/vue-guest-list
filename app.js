@@ -14,6 +14,7 @@ new Vue({
         eventCapacity: 25,
         eventCapacityPercentage: 0
     },
+    //methods rerender always even if there is no change to its data displays
     methods: {
         formSubmitted: function(){
             if(this.newNameText.length > 0 && this.eventCapacityPercentage < 100){
@@ -23,6 +24,13 @@ new Vue({
             }else{
                 alert('error')
             }
-        }
+        },
+
     },
+    //only rerender when the dependency is changed >> more efficient
+    computed: {
+        sortNames: function(){
+            return this.guestName.sort()
+        }
+    }
 });
