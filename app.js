@@ -8,9 +8,6 @@ new Vue({
         },
         newNameText:'',
         guestName: [],
-        appStyles: {
-            marginTop: '25px',
-        },
         eventCapacity: 25,
         eventCapacityPercentage: 0
     },
@@ -47,3 +44,10 @@ new Vue({
         }
     }
 });
+
+new Vue({
+    el: '#navigation',
+    data: {
+        appName: 'Guest List'
+    }
+})
