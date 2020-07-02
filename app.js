@@ -25,12 +25,25 @@ new Vue({
                 alert('error')
             }
         },
-
+        keyPressed: function(){
+            console.log("key pressed")
+        }
     },
     //only rerender when the dependency is changed >> more efficient
     computed: {
         sortNames: function(){
             return this.guestName.sort()
+        }
+    },
+    //observes, the function runs on each change 
+    watch: {
+        guestName: function(data){
+            console.log('watch triggerd')
+        }
+    },
+    filters: {
+        formatName: function(value){
+            return value.slice(0, 1).toUpperCase() + value.slice(1).toLowerCase()
         }
     }
 });
