@@ -8,20 +8,42 @@ new Vue({
         },
         newNameText:'',
         guestName: [],
-        formSubmitClass: "",
         appStyles: {
             marginTop: '25px',
-        }
+        },
+        eventCapacity: 25,
+        eventCapacityPercentage: 0
     },
+    //methods rerender always even if there is no change to its data displays
     methods: {
         formSubmitted: function(){
-            if(this.newNameText.length > 0){
+            if(this.newNameText.length > 0 && this.eventCapacityPercentage < 100){
                 this.guestName.push(this.newNameText)
                 this.newNameText= ''
-                this.formSubmitClass='submitted'
+                this.eventCapacityPercentage = this.guestName.length / (this.eventCapacity / 100)
             }else{
-                alert('wrong name')
+                alert('error')
             }
+        },
+        keyPressed: function(){
+            console.log("key pressed")
         }
     },
+    //only rerender when the dependency is changed >> more efficient
+    computed: {
+        sortNames: function(){
+            return this.guestName.sort()
+        }
+    },
+    //observes, the function runs on each change 
+    watch: {
+        guestName: function(data){
+            console.log('watch triggerd')
+        }
+    },
+    filters: {
+        formatName: function(value){
+            return value.slice(0, 1).toUpperCase() + value.slice(1).toLowerCase()
+        }
+    }
 });

@@ -24,7 +24,7 @@
       <div class="row" :style="appStyles">
         <div class="col-sm-12">
           <div class="card">
-            <div class="card-header" :class="formSubmitClass">
+            <div class="card-header">
               {{ event.eventDate }}
             </div>
             <div class="card-block">
@@ -33,10 +33,15 @@
               <p class="card-text">Add your name to the guest list for exclusive offers:</p>
 
               <form class="form-inline" @submit.prevent="formSubmitted">
-                <input type="text" id="nameInput" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Jane Doe" v-model="newNameText">
+                <input type="text" 
+                  id="nameInput" 
+                  class="form-control mb-2 mr-sm-2 mb-sm-0" 
+                  placeholder="Jane Doe" 
+                  v-model="newNameText"
+                  @keyup.space="keyPressed">
                 <input type="submit" class="btn btn-primary"></input>
               </form>
-              {{newNameText}}
+              <!-- {{newNameText}} -->
             </div>
           </div>
         </div>
@@ -46,13 +51,16 @@
         <div class="col-sm-12">
           <div class="card">
             <div class="card-header">
-              Attending ({{guestName.length}})
+              Attending ({{guestName.length}} / {{eventCapacity}})
+              <br>
+              <progress :style="{width: eventCapacityPercentage + '%'}"></progress>
             </div>
             <div class="card-block">
               <div v-if="guestName.length > 0">
                 <div class="card-success rounded name-box"
-                  v-for="name in guestName">
-                    {{name}}
+                  v-for="(name, index) in sortNames" :key="name">
+                    <!-- '|' wendet einen Filter an -->
+                    {{name | formatName}} ({{index +1}})
                 </div>
               </div>
               <div v-else="">
