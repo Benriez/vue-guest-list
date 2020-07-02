@@ -12,16 +12,28 @@
 </head>
 <body>
 
-  <div id="app">
-    <div class="container">
-
-      <div class="row" :style="appStyles">
+  <div class="container">
+    <div id="navigation">
+      <div class="row">
         <div class="col-sm-12 text-center">
-          <h1>Guest List</h1>
+          <h1 @click="changeTitle" ref="name">Guest List</h1>
+          <hr>
         </div>
-      </div>
 
-      <div class="row" :style="appStyles">
+        <div>
+          <ul class="nav">
+            <div v-for="navLink in navLinks" :key="navLink.id">
+              <li class="nav-item"><a class="nav-link" :href="navLink.url">{{navLink.name}}</a></li>
+            </div>
+          </ul>
+        </div>
+
+      </div>
+      <hr>
+    </div>
+
+  <div id="app">
+      <div class="row">
         <div class="col-sm-12">
           <div class="card">
             <div class="card-header">
@@ -47,7 +59,7 @@
         </div>
       </div>
 
-      <div class="row" :style="appStyles">
+      <div class="row">
         <div class="col-sm-12">
           <div class="card">
             <div class="card-header">
