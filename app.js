@@ -83,7 +83,7 @@ var vm2 = new Vue({
     },
     methods: {
         changeTitle: function(){
-            this.$refs.name.hidden = true
+            this.$refs.name.innerText = "New Title"
             console.log(this.$refs)
         }
     }
